@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { Tela2Component } from './tela2.component';
+import { Form3Component } from './form3.component';
 
-describe('Tela2Component', () => {
-  let component: Tela2Component;
-  let fixture: ComponentFixture<Tela2Component>;
+describe('Form3Component', () => {
+  let component: Form3Component;
+  let fixture: ComponentFixture<Form3Component>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ Tela2Component ],
+      declarations: [ Form3Component ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Tela2Component);
+    fixture = TestBed.createComponent(Form3Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

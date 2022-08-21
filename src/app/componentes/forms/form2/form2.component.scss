@@ -2,6 +2,7 @@
   background: #ffffff;
 }
 .content {
+
   .title {
     margin-top: 54px;
     text-align: center;
@@ -20,4 +21,17 @@
     line-height: 150%;
     color: #000000;
   }
+
+  ion-select {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .btn-send {
+    margin-top: 29px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+  }
+
 }
