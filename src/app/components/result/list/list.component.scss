@@ -1,0 +1,15 @@
+ion-card-header {
+  color: #000;
+}
+
+ion-card-header h2 {
+  margin-left: 0.25rem;
+  display: inline;
+}
+
+ion-card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}

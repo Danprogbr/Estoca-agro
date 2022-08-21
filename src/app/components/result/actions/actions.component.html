@@ -1,0 +1,9 @@
+<div *ngIf="type === 'productor'">
+  <ion-button expand="block"
+    ><ion-icon name="arrow-back-outline"></ion-icon>Voltar</ion-button
+  >
+  <ion-button expand="block" fill="outline">Nova pesquisa</ion-button>
+</div>
+<div *ngIf="type !== 'productor'">
+  <ion-button expand="block">Cadastrar novo anúncio</ion-button>
+</div>

@@ -1,0 +1,37 @@
+:host {
+  background: #ffffff;
+}
+
+.page-wrapper {
+  justify-content: flex-start;
+}
+
+.header {
+  margin: 3rem auto;
+
+  img {
+    display: block;
+    width: 200px;
+  }
+}
+
+.sub-title {
+  display: flex;
+  justify-content: center;
+  // margin-top: 100px;
+  h4 {
+    text-align: center;
+    color: #424656;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.btns {
+  margin-top: 2rem;
+  .btn-outline {
+    margin-top: 1rem;
+  }
+}
