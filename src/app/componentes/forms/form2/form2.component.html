@@ -10,25 +10,27 @@ para o seu grão</span>
 
   <form [formGroup]="form">
     <div>
-      <ion-list>
-        <ion-item >
-          <ion-select interface="action-sheet" placeholder="Selecione.." mode="ios" formControlName="dateOf">
-            <ion-select-option *ngFor="let item of tipoGrain" [value]="item.text">{{item.text}}</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-list>
+      <ion-item>
+        <ion-input
+          id="date1"
+          placeholder="Data final"
+          formControlName="dateOf"
+          type="date"
+          class="red"
+        ></ion-input>
+      </ion-item>
     </div>
 
-    <div>
-      <ion-list>
-        <ion-item >
-          <ion-select interface="action-sheet" placeholder="Selecione.." mode="ios" formControlName="dateUntil">
-            <ion-select-option *ngFor="let item of tipoGrain" [value]="item.text">{{item.text}}</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-list>
-    </div>
-
+   <div>
+     <ion-item>
+       <ion-input
+         id="date2"
+         placeholder="Data final"
+         formControlName="dateUntil"
+         type="date"
+       ></ion-input>
+     </ion-item>
+   </div>
 
     <div class="btn-send">
       <ion-button mode="ios" fill="outline" (click)="navigateBack()">

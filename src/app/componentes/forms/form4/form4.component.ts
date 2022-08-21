@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {LoadingController, NavController} from "@ionic/angular";
+import * as dataCidade from './data/dataCidades.json';
+import * as dataEstado from './data/dataEstados.json';
 
 @Component({
   selector: 'app-form4',
@@ -10,6 +12,8 @@ import {LoadingController, NavController} from "@ionic/angular";
 export class Form4Component implements OnInit {
 
   form: FormGroup;
+  dataCidade = dataCidade;
+  dataEstado = dataEstado;
   tipoGrain = [
     {
       id: 1,

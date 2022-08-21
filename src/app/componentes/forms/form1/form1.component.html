@@ -1,9 +1,8 @@
-<div class="content page-wrapper">
+<div class="content">
+  <app-step [steps]="6" [activeStep]="3"></app-step>
   <div class="title">
-    <span
-      >Defina as condições <br />
-      do seu espaço</span
-    >
+    <span>Defina as condições <br>
+      do seu espaço</span>
   </div>
   <div class="question">
     <span>Qual grão você precisa estocar?</span>
@@ -12,30 +11,16 @@
   <form [formGroup]="form">
     <div>
       <ion-list>
-        <ion-item>
-          <ion-select
-            interface="action-sheet"
-            placeholder="Selecione.."
-            mode="ios"
-            formControlName="typeGrain"
-          >
-            <ion-select-option
-              *ngFor="let item of tipoGrain"
-              [value]="item.text"
-              >{{ item.text }}</ion-select-option
-            >
+        <ion-item >
+          <ion-select interface="action-sheet" placeholder="Selecione.." mode="ios" formControlName="typeGrain">
+            <ion-select-option *ngFor="let item of tipoGrain" [value]="item.text">{{item.text}}</ion-select-option>
           </ion-select>
         </ion-item>
       </ion-list>
     </div>
 
     <div class="btn-send">
-      <ion-button
-        [disabled]="!this.form.valid"
-        mode="ios"
-        expand="block"
-        (click)="sendTypeGrain()"
-      >
+      <ion-button [disabled]="!this.form.valid" mode="ios" expand="block" (click)="sendTypeGrain()">
         ENVIAR
         <ion-spinner *ngIf="loading"></ion-spinner>
       </ion-button>

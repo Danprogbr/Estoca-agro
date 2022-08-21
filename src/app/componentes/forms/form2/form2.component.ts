@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {LoadingController, NavController} from "@ionic/angular";
+import {LoadingController, NavController, PopoverController} from "@ionic/angular";
 
 @Component({
   selector: 'app-form2',
@@ -28,7 +28,8 @@ export class Form2Component implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private popoverController: PopoverController
   ) {
 
   }
@@ -58,5 +59,19 @@ export class Form2Component implements OnInit {
 
   navigateBack() {
     this.navCtrl.navigateBack('form1');
+  }
+
+
+
+  async dismissClick() {
+    await this.popoverController.dismiss();
+  }
+
+  getDateUntil(date: string): string {
+    return date ? new Date(date).toLocaleDateString('pt-br') : '';
+  }
+
+  getDateOf(date: any) {
+    return date ? new Date(date).toLocaleDateString('pt-br') : '';
   }
 }

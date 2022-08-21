@@ -10,11 +10,12 @@ para alocar o seu produto?</span>
   </div>
 
   <form [formGroup]="form">
+
     <div>
       <ion-list>
         <ion-item >
-          <ion-select interface="action-sheet" placeholder="Cidade" mode="ios" formControlName="city">
-            <ion-select-option *ngFor="let item of tipoGrain" [value]="item.text">{{item.text}}</ion-select-option>
+          <ion-select interface="action-sheet" placeholder="Estado" mode="ios" formControlName="state">
+            <ion-select-option *ngFor="let item of dataEstado.estados" [value]="item.text">{{item.Nome}}</ion-select-option>
           </ion-select>
         </ion-item>
       </ion-list>
@@ -23,8 +24,8 @@ para alocar o seu produto?</span>
     <div>
       <ion-list>
         <ion-item >
-          <ion-select interface="action-sheet" placeholder="Estado" mode="ios" formControlName="state">
-            <ion-select-option *ngFor="let item of tipoGrain" [value]="item.text">{{item.text}}</ion-select-option>
+          <ion-select interface="action-sheet" placeholder="Cidade" mode="ios" formControlName="city">
+            <ion-select-option *ngFor="let item of dataCidade.cidade" [value]="item.text">{{item.Nome}}</ion-select-option>
           </ion-select>
         </ion-item>
       </ion-list>

@@ -25,30 +25,20 @@
         <div class="question">
           <span>{{ formQuestions.period }}</span>
         </div>
-        <ion-select
-          interface="action-sheet"
-          placeholder="Selecione.."
-          mode="ios"
-          formControlName="startDate"
-        >
-          <ion-select-option
-            *ngFor="let item of grainTypes"
-            [value]="item.text"
-            >{{ item.text }}</ion-select-option
-          >
-        </ion-select>
-        <ion-select
-          interface="action-sheet"
-          placeholder="Selecione.."
-          mode="ios"
-          formControlName="endDate"
-        >
-          <ion-select-option
-            *ngFor="let item of grainTypes"
-            [value]="item.text"
-            >{{ item.text }}</ion-select-option
-          >
-        </ion-select>
+            <ion-input
+              id="startDate"
+              placeholder="Data final"
+              formControlName="startDate"
+              type="date"
+              class="red"
+            ></ion-input>
+
+            <ion-input
+              id="endDate"
+              placeholder="Data final"
+              formControlName="endDate"
+              type="date"
+            ></ion-input>
       </div>
       <div *ngIf="currentStep === 2">
         <div class="question">
@@ -71,29 +61,13 @@
         <div class="question">
           <span>{{ formQuestions.location }}</span>
         </div>
-        <ion-select
-          interface="action-sheet"
-          placeholder="Selecione.."
-          mode="ios"
-          formControlName="city"
-        >
-          <ion-select-option
-            *ngFor="let item of grainTypes"
-            [value]="item.text"
-            >{{ item.text }}</ion-select-option
-          >
+
+
+        <ion-select interface="action-sheet" placeholder="Estado" mode="ios" formControlName="state">
+          <ion-select-option *ngFor="let item of dataEstado.estados" [value]="item.text">{{item.Nome}}</ion-select-option>
         </ion-select>
-        <ion-select
-          interface="action-sheet"
-          placeholder="Selecione.."
-          mode="ios"
-          formControlName="state"
-        >
-          <ion-select-option
-            *ngFor="let item of grainTypes"
-            [value]="item.text"
-            >{{ item.text }}</ion-select-option
-          >
+        <ion-select interface="action-sheet" placeholder="Cidade" mode="ios" formControlName="city">
+          <ion-select-option *ngFor="let item of dataCidade.cidade" [value]="item.text">{{item.Nome}}</ion-select-option>
         </ion-select>
       </div>
       <div *ngIf="currentStep === 4">

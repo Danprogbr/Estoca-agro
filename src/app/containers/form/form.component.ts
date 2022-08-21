@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import * as dataCidade from './data/dataCidades.json';
+import * as dataEstado from './data/dataEstados.json';
 
 @Component({
   selector: 'app-form',
@@ -19,8 +21,10 @@ export class FormComponent implements OnInit {
     grainWeight: new FormControl('', Validators.required),
   });
   currentStep = 0;
+  dataCidade = dataCidade;
+  dataEstado = dataEstado;
   type: string;
-  headingText = 'Defina as condições do seu espaço';
+  headingText = 'Defina as condições armazenamento ideal para o seu grão';
   grainTypes = [
     {
       id: 1,
@@ -73,7 +77,7 @@ export class FormComponent implements OnInit {
 
       this.formQuestions = {
         grainType:
-          'Qual grão é possível estocar noarmazenamento que você pretende alugar?',
+          'Qual grão é possível estocar no armazenamento que você pretende alugar?',
         period: 'Qual período em que seu armazenamento está disponível?',
         storageType: 'Qual o tipo do seu armazenamento?',
         location: 'Qual a cidade em que seu armazenamento está localizado?',
