@@ -1,3 +1,30 @@
+:host {
+  background: #ffffff;
+}
+
+* {
+  color: #000000;
+}
+
+.button-solid {
+  color: #fff !important;
+}
+
+.button-outline {
+  color: var(--ion-color-primary, #3880ff) !important;
+}
+
+ion-input,
+ion-select {
+  border: solid 1px #adadad;
+  border-radius: 8px;
+  margin: 1.5rem auto;
+}
+
+ion-input {
+  padding: 4px !important;
+}
+
 .page-wrapper {
   justify-content: flex-start;
 }
@@ -10,9 +37,9 @@
 
 .question {
   text-align: center;
-  margin: 1.5rem auto;
+  margin-top: 1.5rem;
 }
 
 .actions > ion-button:first-child {
-  margin: 1rem auto;
+  margin: 0.5rem auto;
 }

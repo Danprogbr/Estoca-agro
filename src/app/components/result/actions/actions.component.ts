@@ -17,6 +17,6 @@ export class ActionsComponent {
 
   newForm(): void {
     localStorage.clear();
-    this.nav.navigateBack(`/form/${this.type}`);
+    this.nav.navigateBack('');
   }
 }

@@ -6,7 +6,7 @@
     <form [formGroup]="form">
       <div *ngIf="currentStep === 0">
         <div class="question">
-          <span>Qual grão você precisa estocar?</span>
+          <span>{{ formQuestions.grainType }}</span>
         </div>
         <ion-select
           interface="action-sheet"
@@ -23,7 +23,7 @@
       </div>
       <div *ngIf="currentStep === 1">
         <div class="question">
-          <span>Qual período de armazenamento?</span>
+          <span>{{ formQuestions.period }}</span>
         </div>
         <ion-select
           interface="action-sheet"
@@ -52,7 +52,7 @@
       </div>
       <div *ngIf="currentStep === 2">
         <div class="question">
-          <span>Que tipo de armazenamento você precisa?</span>
+          <span>{{ formQuestions.storageType }}</span>
         </div>
         <ion-select
           interface="action-sheet"
@@ -69,7 +69,7 @@
       </div>
       <div *ngIf="currentStep === 3">
         <div class="question">
-          <span>Qual região é mais estratégica para alocar o seu produto?</span>
+          <span>{{ formQuestions.location }}</span>
         </div>
         <ion-select
           interface="action-sheet"
@@ -98,42 +98,47 @@
       </div>
       <div *ngIf="currentStep === 4">
         <div class="question">
-          <span>Quantos quilos de grãos você precisa armazenar?</span>
+          <span>{{ formQuestions.grainWeight }}</span>
         </div>
-        <ion-select
-          interface="action-sheet"
-          placeholder="Selecione.."
-          mode="ios"
-          formControlName="grainWeight"
-        >
-          <ion-select-option
-            *ngFor="let item of grainTypes"
-            [value]="item.text"
-            >{{ item.text }}</ion-select-option
-          >
-        </ion-select>
+        <ion-input type="number" formControlName="grainWeight"></ion-input>
       </div>
 
-      <div class="actions" *ngIf="!isLastStep()">
-        <ion-button mode="ios" expand="block" (click)="nextStep()">
+      <div class="actions">
+        <ion-button
+          *ngIf="!isLastStep()"
+          mode="ios"
+          expand="block"
+          (click)="nextStep()"
+        >
           Avançar
         </ion-button>
         <ion-button
+          *ngIf="isLastStep()"
+          mode="ios"
+          expand="block"
+          (click)="goToResults()"
+        >
+          Ver resultados
+        </ion-button>
+        <ion-button
+          *ngIf="currentStep >= 1"
           mode="ios"
           expand="block"
           fill="outline"
           (click)="previousStep()"
-          *ngIf="currentStep >= 1"
+        >
+          Voltar
+        </ion-button>
+        <ion-button
+          *ngIf="currentStep === 0"
+          mode="ios"
+          expand="block"
+          fill="outline"
+          (click)="goToHome()"
         >
           Voltar
         </ion-button>
       </div>
     </form>
-
-    <div class="actions" *ngIf="isLastStep()">
-      <ion-button mode="ios" expand="block" (click)="goToResults()">
-        Ver resultados
-      </ion-button>
-    </div>
   </div>
 </div>

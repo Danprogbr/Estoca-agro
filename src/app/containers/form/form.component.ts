@@ -54,21 +54,36 @@ export class FormComponent implements OnInit {
     },
   ];
 
+  formQuestions = {
+    grainType: 'Qual grão você precisa estocar?',
+    period: 'Qual período de armazenamento?',
+    storageType: 'Que tipo de armazenamento você precisa?',
+    location: 'Qual região é mais estratégica para alocar o seu produto?',
+    grainWeight: 'Quantos quilos de grãos você precisa armazenar?',
+  };
+
   constructor(private route: ActivatedRoute, private nav: NavController) {}
 
   ngOnInit() {
     const routeParams = this.route.snapshot.paramMap;
     this.type = routeParams.get('type');
 
-    this.headingText =
-      this.type === 'productor'
-        ? 'Defina as condições armazenamento ideal para o seu grão'
-        : 'Defina as condições do seu espaço';
+    if (this.type !== 'productor') {
+      this.headingText = 'Defina as condições do seu espaço';
 
-    console.log(localStorage.getItem('formValues'));
+      this.formQuestions = {
+        grainType:
+          'Qual grão é possível estocar noarmazenamento que você pretende alugar?',
+        period: 'Qual período em que seu armazenamento está disponível?',
+        storageType: 'Qual o tipo do seu armazenamento?',
+        location: 'Qual a cidade em que seu armazenamento está localizado?',
+        grainWeight: 'Qual a capacidade do seu armazenamento? (em KG)',
+      };
+    }
 
     if (localStorage.getItem('formValues') !== null) {
-      console.log(localStorage.getItem('formValues'));
+      const storagedFormValues = JSON.parse(localStorage.getItem('formValues'));
+      this.form.setValue(storagedFormValues);
       this.currentStep = 4;
     }
   }
@@ -89,5 +104,10 @@ export class FormComponent implements OnInit {
   goToResults(): void {
     localStorage.setItem('formValues', JSON.stringify(this.form.value));
     this.nav.navigateForward(`/result/${this.type}`);
+  }
+
+  goToHome(): void {
+    localStorage.clear();
+    this.nav.navigateForward('');
   }
 }
