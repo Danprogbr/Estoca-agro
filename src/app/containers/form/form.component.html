@@ -1,0 +1,144 @@
+<div class="page-wrapper">
+  <div class="header">
+    <h3>{{ headingText }}</h3>
+  </div>
+  <div class="form-content">
+    <form [formGroup]="form">
+      <div *ngIf="currentStep === 0">
+        <div class="question">
+          <span>{{ formQuestions.grainType }}</span>
+        </div>
+        <ion-select
+          interface="action-sheet"
+          placeholder="Selecione.."
+          mode="ios"
+          formControlName="grainType"
+        >
+          <ion-select-option
+            *ngFor="let item of grainTypes"
+            [value]="item.text"
+            >{{ item.text }}</ion-select-option
+          >
+        </ion-select>
+      </div>
+      <div *ngIf="currentStep === 1">
+        <div class="question">
+          <span>{{ formQuestions.period }}</span>
+        </div>
+        <ion-select
+          interface="action-sheet"
+          placeholder="Selecione.."
+          mode="ios"
+          formControlName="startDate"
+        >
+          <ion-select-option
+            *ngFor="let item of grainTypes"
+            [value]="item.text"
+            >{{ item.text }}</ion-select-option
+          >
+        </ion-select>
+        <ion-select
+          interface="action-sheet"
+          placeholder="Selecione.."
+          mode="ios"
+          formControlName="endDate"
+        >
+          <ion-select-option
+            *ngFor="let item of grainTypes"
+            [value]="item.text"
+            >{{ item.text }}</ion-select-option
+          >
+        </ion-select>
+      </div>
+      <div *ngIf="currentStep === 2">
+        <div class="question">
+          <span>{{ formQuestions.storageType }}</span>
+        </div>
+        <ion-select
+          interface="action-sheet"
+          placeholder="Selecione.."
+          mode="ios"
+          formControlName="storageType"
+        >
+          <ion-select-option
+            *ngFor="let item of storageTypes"
+            [value]="item.text"
+            >{{ item.text }}</ion-select-option
+          >
+        </ion-select>
+      </div>
+      <div *ngIf="currentStep === 3">
+        <div class="question">
+          <span>{{ formQuestions.location }}</span>
+        </div>
+        <ion-select
+          interface="action-sheet"
+          placeholder="Selecione.."
+          mode="ios"
+          formControlName="city"
+        >
+          <ion-select-option
+            *ngFor="let item of grainTypes"
+            [value]="item.text"
+            >{{ item.text }}</ion-select-option
+          >
+        </ion-select>
+        <ion-select
+          interface="action-sheet"
+          placeholder="Selecione.."
+          mode="ios"
+          formControlName="state"
+        >
+          <ion-select-option
+            *ngFor="let item of grainTypes"
+            [value]="item.text"
+            >{{ item.text }}</ion-select-option
+          >
+        </ion-select>
+      </div>
+      <div *ngIf="currentStep === 4">
+        <div class="question">
+          <span>{{ formQuestions.grainWeight }}</span>
+        </div>
+        <ion-input type="number" formControlName="grainWeight"></ion-input>
+      </div>
+
+      <div class="actions">
+        <ion-button
+          *ngIf="!isLastStep()"
+          mode="ios"
+          expand="block"
+          (click)="nextStep()"
+        >
+          Avançar
+        </ion-button>
+        <ion-button
+          *ngIf="isLastStep()"
+          mode="ios"
+          expand="block"
+          (click)="goToResults()"
+        >
+          Ver resultados
+        </ion-button>
+        <ion-button
+          *ngIf="currentStep >= 1"
+          mode="ios"
+          expand="block"
+          fill="outline"
+          (click)="previousStep()"
+        >
+          Voltar
+        </ion-button>
+        <ion-button
+          *ngIf="currentStep === 0"
+          mode="ios"
+          expand="block"
+          fill="outline"
+          (click)="goToHome()"
+        >
+          Voltar
+        </ion-button>
+      </div>
+    </form>
+  </div>
+</div>
