@@ -1,103 +1,77 @@
-// Reset
-*,
-:before,
-:after {
-  box-sizing: border-box;
-}
+.step {
 
-// General
-body {
-  height: 100vh;
-  max-width: 420px;
-  padding: 20px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  margin: 0 5px 0 5px;
 
-// Variables
-$inactive: #dfdfdf;
-$active1: #00bc8b;
-$active2: #9Eddcc;
-$active3: #cbf4e9;
-$radius: 15px;
-$size: 10px;
-
-// Animations
-@keyframes dash {
-  from {
-    transform: translateX(-100%);
+  .stepper-wrapper {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
   }
-  to {
-    transform: translateX(100%);
-  }
-}
-
-// Mixins
-@mixin dashAnimation($color, $zIndex, $timingFunction) {
-  animation: dash 1.618s infinite #{$timingFunction};
-  background-color: #{$color};
-  z-index: #{$zIndex};
-};
-
-// Steps component
-.steps-container {
-  display: flex;
-  height: $size;
-  width: 100%;
-  gap: 14px;
-}
-
-.step-item {
-  flex: 1 1 0;
-  width: 0;
-  background: $inactive;
-  border-radius: $radius;
-
-  &.active {
-    background: $active1;
-  }
-
-  &.loading {
+  .stepper-item {
     position: relative;
-    overflow: hidden;
-    z-index: 0;
-
-    &:before,
-    &:after,
-    span {
-      display: flex;
-      position: absolute;
-      transform: translateX(-100%);
-      height: 100%;
-      width: 100%;
-      border-radius: $radius;
-    }
-
-    span {
-      @include dashAnimation($active1, 2, 'cubic-bezier(0.4, 0, 1.0, 1.0)');
-
-      &:before {
-        content: '';
-        display: inline-block;
-        position: absolute;
-        left: 0;
-        width: $size;
-        height: $size;
-        border-radius: 50%;
-        background-color: $inactive;
-      }
-    }
-
-    &:before {
-      content: '';
-      @include dashAnimation($active2, 1, 'cubic-bezier(0.2, 0, 1.0, 1.0)');
-    }
-
-    &:after {
-      content: '';
-      @include dashAnimation($active3, 0, 'linear');
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
   }
+
+  .stepper-item::before {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: -50%;
+    z-index: 2;
+  }
+
+  .stepper-item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 2;
+  }
+
+  .stepper-item .step-counter {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ccc;
+    margin-bottom: 6px;
+  }
+
+  .stepper-item.active {
+    font-weight: bold;
+  }
+
+  .stepper-item.completed .step-counter {
+    background-color: #4bb543;
+  }
+
+  .stepper-item.completed::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #4bb543;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 3;
+  }
+
+  .stepper-item:first-child::before {
+    content: none;
+  }
+  .stepper-item:last-child::after {
+    content: none;
+  }
+
 }

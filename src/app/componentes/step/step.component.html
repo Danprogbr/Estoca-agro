@@ -1,7 +1,12 @@
-<div class="steps-container" >
-  <div *ngFor="let item of [].constructor(steps); let i = index" [ngClass]="i < activeStep ? 'step-item active' : 'step-item'"><span></span></div>
+<div class="step">
+  <div class="stepper-wrapper">
+    <div [ngClass]="
+  i < activeStep ? 'stepper-item completed' : '' ||
+  i === activeStep ? 'stepper-item active' : '' ||
+  i === activeStep ? 'stepper-item' : ''
+" *ngFor="let item of [].constructor(steps); let i = index" >
+      <div class="step-counter">{{i+1}}</div>
+    </div>
+  </div>
+
 </div>
-
-
-
-
