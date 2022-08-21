@@ -1,0 +1,35 @@
+<div class="content">
+  <div class="title">
+    <span>Defina as condições <br>
+armazenamento ideal <br>
+para o seu grão</span>
+  </div>
+  <div class="question">
+    <span>Que tipo de armazenamento <br>
+      você precisa??</span>
+  </div>
+
+  <form [formGroup]="form">
+    <div>
+      <ion-list>
+        <ion-item >
+          <ion-select interface="action-sheet" placeholder="Selecione.." mode="ios" formControlName="grainConditions">
+            <ion-select-option *ngFor="let item of tipoGrain" [value]="item.text">{{item.text}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </div>
+
+
+    <div class="btn-send">
+      <ion-button mode="ios" fill="outline" (click)="navigateBack()">
+        VOLTAR
+        <ion-spinner *ngIf="loading"></ion-spinner>
+      </ion-button>
+      <ion-button [disabled]="!this.form.valid" mode="ios" (click)="sendTypeGrain()">
+        ENVIAR
+        <ion-spinner *ngIf="loading"></ion-spinner>
+      </ion-button>
+    </div>
+  </form>
+</div>

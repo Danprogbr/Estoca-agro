@@ -1,0 +1,37 @@
+:host {
+  background: #ffffff;
+}
+.content {
+
+  .title {
+    margin-top: 54px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 24px;
+    color: #424656;
+  }
+  .question {
+    margin-top: 150px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #000000;
+  }
+
+  ion-select {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .btn-send {
+    margin-top: 29px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+  }
+
+}
