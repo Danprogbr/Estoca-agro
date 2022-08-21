@@ -1,0 +1,16 @@
+<ion-card *ngFor="let item of items">
+  <ion-card-header>
+    <h2>{{ item.pricePerMonth | currency: "BRL":"symbol" }}</h2>
+    <span>/mês</span>
+  </ion-card-header>
+
+  <ion-card-content>
+    <div>
+      <h3>{{ item.storageType }}</h3>
+      <h3>{{ item.city }}, {{ item.country }}</h3>
+    </div>
+    <div>
+      <ion-badge>{{ badgeText }}</ion-badge>
+    </div>
+  </ion-card-content>
+</ion-card>
