@@ -2,25 +2,24 @@
   background: #ffffff;
 }
 
-.content {
-  .header {
-    margin-top: 50px;
-    .logo {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 150px;
-    }
-    .title {
-      text-align: center;
-      color: #424656;
-      font-weight: 500;
-      font-size: 24px;
-      line-height: 24px;
-    }
+.page-wrapper {
+  justify-content: flex-start;
+}
+
+.header {
+  margin: 3rem auto;
+
+  img {
+    display: block;
+    width: 200px;
   }
-  .sub-title {
-    margin-top: 100px;
+}
+
+.sub-title {
+  display: flex;
+  justify-content: center;
+  // margin-top: 100px;
+  h4 {
     text-align: center;
     color: #424656;
     font-style: normal;
@@ -28,10 +27,11 @@
     font-size: 20px;
     line-height: 24px;
   }
-  .btns {
-    margin-top: 39px;
-    .btn-outline {
-      margin-top: 16px;
-    }
+}
+
+.btns {
+  margin-top: 2rem;
+  .btn-outline {
+    margin-top: 1rem;
   }
 }
