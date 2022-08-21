@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IGrainStorage } from 'src/app/models/grain-storage.model';
 
 @Component({
@@ -14,7 +14,7 @@ export class ResultComponent implements OnInit {
   ];
   type: string;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     const routeParams = this.route.snapshot.paramMap;

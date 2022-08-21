@@ -1,8 +1,12 @@
 :host {
   background: #ffffff;
 }
-.content {
 
+.page-wrapper {
+  justify-content: flex-start;
+}
+
+.content {
   .title {
     margin-top: 54px;
     text-align: center;
@@ -28,7 +32,6 @@
   }
 
   .btn-send {
-    margin-top: 29px
+    margin-top: 29px;
   }
-
 }
