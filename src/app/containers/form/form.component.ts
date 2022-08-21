@@ -49,10 +49,6 @@ export class FormComponent implements OnInit {
       text: 'Armazém',
     },
     {
-      id: 3,
-      text: 'Silo bag',
-    },
-    {
       id: 4,
       text: 'Indiferente',
     },
