@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import {NavController} from "@ionic/angular";
+import {NavController} from '@ionic/angular';
 
 @Component({
-  selector: 'app-tela1',
+  selector: 'app-home',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
@@ -13,6 +13,6 @@ export class Tab1Page {
   ) {}
 
   redirect() {
-    this.nav.navigateForward('/tela2');
+    this.nav.navigateForward('/form1');
   }
 }

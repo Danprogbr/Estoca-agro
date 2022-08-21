@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { Tela2Component } from './componentes/tela2/tela2.component';
-import { ResultComponent } from './containers/result/result.component';
 
 const routes: Routes = [
   {
